@@ -1,23 +1,10 @@
-//recursive mergesort function in js
-/*
-const mergesort=(arr)=>{
-   if (arr.length<=1){
-    return arr
-   }
-   var pivot=arr[0]
+/**
+ * Recursive solution to mergeSort program
+ * @param {arr} arr:array of values to sort
+ * @returns sorted array
+ */
 
-   var left=[]
-   var right=[]
-
-   for (var i=1;i<arr.length;i++){
-    arr[i]<pivot ? left.push(arr[i]) : right.push(arr[i])
-   
-   }
-   return mergesort(left).concat(pivot,mergesort(right))  
-}
-*/
-
-const mergesort=(arr)=>{
+const mergeSortFirst=(arr)=>{
     if (arr.length<2){
         return arr 
     }
@@ -28,13 +15,27 @@ const mergesort=(arr)=>{
     for (var i=1;i<arr.length;i++){
         arr[i]<pivot ? less.push(arr[i]) : greater.push(arr[i])
     }
-    return mergesort(less).concat(pivot,mergesort(greater))
+    return mergeSortFirst(less).concat(pivot,mergeSortFirst(greater))
+
+
+
+}
+const arr=[11,3,4,2,9,10,1,5,15]
+var sorted=(mergeSortFirst(arr))
+console.log(sorted)
+
+
+
+const mergeSortSecond=(arr)=>{
+    if (arr.length<2){
+        return arr
+    }
+    
 
 
 
 }
 
 
-const arr=[11,3,4,2,9,10,1,5,15]
-var sorted=(mergesort(arr))
-console.log(sorted)
+const arr2=[11,3,4,2,9,10,1,5,15]
+console.log(mergeSortFirst(arr2))
